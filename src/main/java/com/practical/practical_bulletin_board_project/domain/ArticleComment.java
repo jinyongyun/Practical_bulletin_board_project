@@ -58,4 +58,5 @@ public class ArticleComment {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }
