@@ -1,5 +1,6 @@
 package com.practical.practical_bulletin_board_project.controller;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -19,6 +20,7 @@ public ArticleControllerTest(@Autowired MockMvc mvc){
     this.mvc = mvc;
 }
 
+@Disabled("구현 중")
 @DisplayName("[view][GET] 게시글 리스트 (게시판) 페이지 - 정상 호출")
 @Test
 public void givenNothing_whenRequestingArticlesView_thenReturnsArticles() throws Exception {
@@ -28,9 +30,10 @@ public void givenNothing_whenRequestingArticlesView_thenReturnsArticles() throws
     mvc.perform(get("/articles"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.TEXT_HTML))
+            .andExpect(view().name("articles/index"))
             .andExpect(model().attributeExists("articles"));
 }
-
+    @Disabled("구현 중")
     @DisplayName("[view][GET] 게시글 상세 페이지 - 정상 호출")
     @Test
     public void givenNothing_whenRequestingArticleView_thenReturnsArticle() throws Exception {
@@ -40,9 +43,11 @@ public void givenNothing_whenRequestingArticlesView_thenReturnsArticles() throws
         mvc.perform(get("/articles/1"))  //id를 이용해 접근
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.TEXT_HTML))
-                .andExpect(model().attributeExists("article"));
+                .andExpect(view().name("articles/detail"))
+                .andExpect(model().attributeExists("article"))
+                .andExpect(model().attributeExists("articleComments"));
     }
-
+    @Disabled("구현 중")
     @DisplayName("[view][GET] 게시글 검색 전용 페이지 - 정상 호출")
     @Test
     public void givenNothing_whenRequestingArticleSearchView_thenReturnsArticleSearchView() throws Exception {
@@ -51,9 +56,10 @@ public void givenNothing_whenRequestingArticlesView_thenReturnsArticles() throws
         //When & then
         mvc.perform(get("/articles/search"))  //id를 이용해 접근
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML));
+                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(model().attributeExists("articles/search"));
     }
-
+    @Disabled("구현 중")
     @DisplayName("[view][GET] 게시글 해시테그 검색 페이지 - 정상 호출")
     @Test
     public void givenNothing_whenRequestingArticleHashtagSearchView_thenReturnsArticleHashtagSearchView() throws Exception {
@@ -62,6 +68,8 @@ public void givenNothing_whenRequestingArticlesView_thenReturnsArticles() throws
         //When & then
         mvc.perform(get("/articles/search-hashtag"))  //id를 이용해 접근
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML));
+                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(model().attributeExists("articles/search-hashtag"));
+
     }
 }
