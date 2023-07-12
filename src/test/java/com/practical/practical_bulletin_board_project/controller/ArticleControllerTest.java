@@ -41,7 +41,7 @@ public void givenNothing_whenRequestingArticlesView_thenReturnsArticles() throws
         //When & then
         mvc.perform(get("/articles/1"))  //id를 이용해 접근
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/detail"))
                 .andExpect(model().attributeExists("article"))
                 .andExpect(model().attributeExists("articleComments"));
@@ -55,7 +55,7 @@ public void givenNothing_whenRequestingArticlesView_thenReturnsArticles() throws
         //When & then
         mvc.perform(get("/articles/search"))  //id를 이용해 접근
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(model().attributeExists("articles/search"));
     }
     @Disabled("구현 중")
@@ -67,7 +67,7 @@ public void givenNothing_whenRequestingArticlesView_thenReturnsArticles() throws
         //When & then
         mvc.perform(get("/articles/search-hashtag"))  //id를 이용해 접근
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(model().attributeExists("articles/search-hashtag"));
 
     }
