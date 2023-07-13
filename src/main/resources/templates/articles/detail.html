@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 페이지</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Jinyong Yun">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+
+ <header id="header"></header>
+
+ <main class="container">
+    <header class="py-5 text-center">
+    <h1>첫번째 글</h1>
+    </header>
+
+     <div class="row g-5">
+         <section class="col-md-5 col-lg-4 order-md-last">
+          <asdie>
+              <p><span class="nick-name">Jinyong</span></p>
+              <p><a class="u-url" rel="me" href="mailto:dbswlsdyd730@naver.com">jinyong@mail.com</a></p>
+              <p><time datetime="2023-01-01T00:00:00">2023-01-01</time></p>
+              <p>#java</p>
+          </asdie>
+         </section>
+
+     <article class="col-md-7 col-lg-8">
+         <p>본문<br><br></p>
+     </article>
+     </div>
+     <div class="row g-5">
+         <section>
+             <form class="row g-3 comment-form">
+                 <input type="hidden" class="article-id">
+                 <div class="col-md-9 col-lg-8">
+                     <label for="comment-textbox" hidden>댓글</label>
+                     <textarea class="form-control comment-textbox" id="comment-textbox" placeholder="댓글 쓰기.." rows="3" required></textarea>
+                 </div>
+                 <div class="col-md-3 col-lg-4">
+                     <label for="comment-submit" hidden>댓글 쓰기</label>
+                     <button class="btn btn-primary" id="comment-submit" type="submit">쓰기</button>
+                 </div>
+             </form>
+             <ul>
+                 <li>
+                    <div>
+                        <time><small>2023-01-01</small></time>
+                        <strong>Jinyong</strong>
+                        <p>
+                          Loream skdlekn dklskdnf sid skmd, dksknd s
+                          dklsk rdllor ist amet
+                        </p>
+                     </div>
+                 </li>
+              <li>
+                <div>
+                  <time><small>2023-01-01</small></time>
+                  <strong>Jinyong</strong>
+                   <p>
+                     Lorem ipsum dolor sit amet, consectuetud amend
+                     Lorem ipsum dolor sit amet
+                 </p>
+                </div>
+              </li>
+            </ul>
+         </section>
+     </div>
+
+     <div class="row g-5">
+         <nav aria-label="Page navigation example">
+             <ul class="pagination">
+                 <li class="page-item">
+                     <a class="page-link" href="#" aria-label="Previous">
+                         <span aria-hidden="true">&laquo; prev</span>
+                     </a>
+                 </li>
+                 <li class="page-item">
+                     <a class="page-link" href="#" aria-label="Next">
+                         <span aria-hidden="true">next &raquo</span>
+                     </a>
+                 </li>
+             </ul>
+         </nav>
+     </div>
+
+ </main>
+
+<footer id="footer"></footer>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+</body>
+</html>
