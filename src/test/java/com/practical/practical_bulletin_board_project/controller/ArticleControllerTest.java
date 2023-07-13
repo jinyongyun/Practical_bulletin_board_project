@@ -1,11 +1,13 @@
 package com.practical.practical_bulletin_board_project.controller;
 
+import com.practical.practical_bulletin_board_project.config.SecurityConfig;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -13,6 +15,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @DisplayName("View 컨트롤러 - 게시글")
+@Import(SecurityConfig.class)
 @WebMvcTest(ArticleController.class)
 class ArticleControllerTest {
 private final MockMvc mvc;
@@ -33,6 +36,7 @@ public void givenNothing_whenRequestingArticlesView_thenReturnsArticles() throws
             .andExpect(model().attributeExists("articles"));
 }
 
+
     @DisplayName("[view][GET] 게시글 상세 페이지 - 정상 호출")
     @Test
     public void givenNothing_whenRequestingArticleView_thenReturnsArticle() throws Exception {
@@ -46,7 +50,8 @@ public void givenNothing_whenRequestingArticlesView_thenReturnsArticles() throws
                 .andExpect(model().attributeExists("article"))
                 .andExpect(model().attributeExists("articleComments"));
     }
-    @Disabled("구현 중")
+
+    @Disabled("구현 중") //아직 구현 안됐다 명심
     @DisplayName("[view][GET] 게시글 검색 전용 페이지 - 정상 호출")
     @Test
     public void givenNothing_whenRequestingArticleSearchView_thenReturnsArticleSearchView() throws Exception {
