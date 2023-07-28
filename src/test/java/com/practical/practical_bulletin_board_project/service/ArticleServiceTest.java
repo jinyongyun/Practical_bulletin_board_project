@@ -38,8 +38,6 @@ class ArticleServiceTest {
     @InjectMocks private ArticleService sut;
 
 
-
-
     @Mock private ArticleRepository articleRepository;
 
 
@@ -58,13 +56,9 @@ class ArticleServiceTest {
         given(articleRepository.findAll(pageable)).willReturn(Page.empty());
 
 
-
-
         // When
 
         Page<ArticleDto> articles = sut.searchArticles(null, null, pageable);
-
-
 
 
         // Then
@@ -92,7 +86,7 @@ class ArticleServiceTest {
 
         Pageable pageable = Pageable.ofSize(20);
 
-        given(articleRepository.findByTitle(searchKeyword, pageable)).willReturn(Page.empty());
+        given(articleRepository.findByTitleContaining(searchKeyword, pageable)).willReturn(Page.empty());
 
 
 
@@ -108,7 +102,7 @@ class ArticleServiceTest {
 
         assertThat(articles).isEmpty();
 
-        BDDMockito.then(articleRepository).should().findByTitle(searchKeyword, pageable);
+        BDDMockito.then(articleRepository).should().findByTitleContaining(searchKeyword, pageable);
 
     }
 
