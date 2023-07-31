@@ -2,6 +2,7 @@ package com.practical.practical_bulletin_board_project.repository;
 
 import com.practical.practical_bulletin_board_project.domain.Article;
 import com.practical.practical_bulletin_board_project.domain.QArticle;
+import com.practical.practical_bulletin_board_project.repository.querydsl.ArticleRepositoryCustom;
 import com.querydsl.core.types.dsl.DateTimeExpression;
 import com.querydsl.core.types.dsl.SimpleExpression;
 import com.querydsl.core.types.dsl.StringExpression;
@@ -16,6 +17,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface ArticleRepository extends
         JpaRepository<Article, Long>,
+        ArticleRepositoryCustom,
         QuerydslPredicateExecutor<Article>,
         QuerydslBinderCustomizer<QArticle>
 {
