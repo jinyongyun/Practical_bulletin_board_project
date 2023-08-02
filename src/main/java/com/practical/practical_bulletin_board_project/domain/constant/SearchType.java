@@ -1,4 +1,4 @@
-package com.practical.practical_bulletin_board_project.domain.type;
+package com.practical.practical_bulletin_board_project.domain.constant;
 
 import lombok.Getter;
 
