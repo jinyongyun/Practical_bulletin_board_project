@@ -1,9 +1,13 @@
 package com.practical.practical_bulletin_board_project.service;
 
+import com.practical.practical_bulletin_board_project.domain.Article;
+import com.practical.practical_bulletin_board_project.domain.UserAccount;
 import com.practical.practical_bulletin_board_project.domain.ArticleComment;
 import com.practical.practical_bulletin_board_project.dto.ArticleCommentDto;
 import com.practical.practical_bulletin_board_project.repository.ArticleCommentRepository;
 import com.practical.practical_bulletin_board_project.repository.ArticleRepository;
+import com.practical.practical_bulletin_board_project.repository.UserAccountRepository;
+import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,8 +21,10 @@ import java.util.List;
 @Transactional
 @Service
 public class ArticleCommentService {
+
     private final ArticleRepository articleRepository;
     private final ArticleCommentRepository articleCommentRepository;
+    private final UserAccountRepository userAccountRepository;
 
     @Transactional(readOnly = true)
     public List<ArticleCommentDto> searchArticleComments(Long articleId) {
@@ -30,9 +36,13 @@ public class ArticleCommentService {
 
     public void saveArticleComment(ArticleCommentDto dto) {
         try {
-            articleCommentRepository.save(dto.toEntity(articleRepository.getReferenceById(dto.articleId())));
+            Article article = articleRepository.getReferenceById(dto.articleId());
+            UserAccount userAccount = userAccountRepository.getReferenceById(dto.userAccountDto().userId());
+            articleCommentRepository.save(dto.toEntity(article, userAccount));
         } catch (EntityNotFoundException e) {
-            log.warn("댓글 저장 실패. 댓글의 게시글을 찾을 수 없습니다 - dto: {}", dto);
+            log.warn("댓글 저장 실패. 댓글 작성에 필요한 정보를 찾을 수 없습니다 - {}", e.getLocalizedMessage());
+        } catch (EntityExistsException e){
+            log.warn(e.getLocalizedMessage()); //얘 추가해줌
         }
     }
 
@@ -44,9 +54,7 @@ public class ArticleCommentService {
             log.warn("댓글 업데이트 실패. 댓글을 찾을 수 없습니다 - dto: {}", dto);
         }
     }
-
     public void deleteArticleComment(Long articleCommentId) {
         articleCommentRepository.deleteById(articleCommentId);
     }
-
 }
