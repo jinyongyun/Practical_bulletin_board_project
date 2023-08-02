@@ -24,7 +24,7 @@ public class ArticleComment extends AuditingFields {
 
     @Setter @ManyToOne(optional = false) private Article article; //게시글 (ID)
 
-    @Setter @ManyToOne(optional = false) private UserAccount userAccount; //유저정보
+    @Setter @ManyToOne(optional = false) @JoinColumn(name = "userId") private UserAccount userAccount; // 유저 정보 (ID)
     @Setter @Column(nullable = false,length = 500) private String content; // 본문
 
 
@@ -33,6 +33,7 @@ public class ArticleComment extends AuditingFields {
 
     private ArticleComment(Article article, UserAccount userAccount, String content) {
         this.article = article;
+        this.userAccount = userAccount;
         this.content = content;
     }
 

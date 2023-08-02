@@ -8,6 +8,7 @@ import com.practical.practical_bulletin_board_project.dto.UserAccountDto;
 import com.practical.practical_bulletin_board_project.dto.ArticleCommentDto;
 import com.practical.practical_bulletin_board_project.repository.ArticleCommentRepository;
 import com.practical.practical_bulletin_board_project.repository.ArticleRepository;
+import com.practical.practical_bulletin_board_project.repository.UserAccountRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +17,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import jakarta.persistence.EntityNotFoundException;
 
+import javax.lang.model.SourceVersion;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,6 +35,8 @@ class ArticleCommentServiceTest {
     @Mock private ArticleRepository articleRepository;
     @Mock private ArticleCommentRepository articleCommentRepository;
 
+    @Mock private UserAccountRepository userAccountRepository;
+
     @DisplayName("게시글 ID로 조회하면, 해당하는 댓글 리스트를 반환한다.")
     @Test
     void givenArticleId_whenSearchingArticleComments_thenReturnsArticleComments() {
@@ -39,10 +44,12 @@ class ArticleCommentServiceTest {
         Long articleId = 1L;
         ArticleComment expected = createArticleComment("content");
         given(articleCommentRepository.findByArticle_Id(articleId)).willReturn(List.of(expected));
-
+        System.out.println(articleCommentRepository.findByArticle_Id(articleId));
         // When
         List<ArticleCommentDto> actual = sut.searchArticleComments(articleId);
-
+          if(actual == null){
+              System.out.println("false");
+          }
         // Then
         assertThat(actual)
                 .hasSize(1)
@@ -56,6 +63,7 @@ class ArticleCommentServiceTest {
         // Given
         ArticleCommentDto dto = createArticleCommentDto("댓글");
         given(articleRepository.getReferenceById(dto.articleId())).willReturn(createArticle());
+        given(userAccountRepository.getReferenceById(dto.userAccountDto().userId())).willReturn(createUserAccount());
         given(articleCommentRepository.save(any(ArticleComment.class))).willReturn(null);
 
         // When
@@ -63,6 +71,7 @@ class ArticleCommentServiceTest {
 
         // Then
         then(articleRepository).should().getReferenceById(dto.articleId());
+        then(userAccountRepository).should().getReferenceById(dto.userAccountDto().userId());
         then(articleCommentRepository).should().save(any(ArticleComment.class));
     }
 
@@ -78,6 +87,7 @@ class ArticleCommentServiceTest {
 
         // Then
         then(articleRepository).should().getReferenceById(dto.articleId());
+        then(userAccountRepository).shouldHaveNoMoreInteractions();
         then(articleCommentRepository).shouldHaveNoInteractions();
     }
 
@@ -145,7 +155,7 @@ class ArticleCommentServiceTest {
 
     private UserAccountDto createUserAccountDto() {
         return UserAccountDto.of(
-                1L,
+
                 "uno",
                 "password",
                 "uno@mail.com",
