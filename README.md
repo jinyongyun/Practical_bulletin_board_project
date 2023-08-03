@@ -1,6 +1,9 @@
 # Practical_bulletin_board_project
 
 실무형 게시판 만들기 프로젝트 
+## notion 링크
+https://www.notion.so/b5e2ee331c364c149f49234c4e8f973e?pvs=4
+
 ## 기술 세부 스택
 
 Spring Boot
@@ -30,6 +33,9 @@ Spring Boot
 
 ## 실제 구동 화면
 ![화면_기록_2023-08-03_오후_10_47_11_AdobeExpress](https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/b1b6e109-3b56-42a7-bc97-4880e883af05)
+<br>
 ![화면_기록_2023-08-03_오후_10_49_42_AdobeExpress](https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/ca9bbf4e-1ed3-4131-92b3-eceff734618e)
+<br>
 ![화면_기록_2023-08-03_오후_10_51_52_AdobeExpress](https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/a4e2081f-39f4-429d-b450-6050bf084373)
+<br>
 ![화면_기록_2023-08-03_오후_10_53_57_AdobeExpress](https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/b220819d-7c37-4e3c-87fe-3496290eed95)
