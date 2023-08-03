@@ -28,7 +28,7 @@ public class SecurityConfig {
                                 "/articles/search-hashtag").permitAll() //이 요청들은 통과
                                 .anyRequest().authenticated() // 얘들은 인증 필요
                         )
-                .formLogin(login -> login.loginPage("/login"))
+                .formLogin(login -> login.permitAll())
                 .logout((logout)-> logout
                         .logoutSuccessUrl("/"));
 
