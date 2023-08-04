@@ -27,6 +27,10 @@ Spring Boot
 * Bootstrap 5.2.0-Beta1
 * Heroku
 
+## 데모 페이지
+https://project-practical-board-a00c44dc39d5.herokuapp.com/
+<br>
+
 <img width="656" alt="스크린샷 2023-08-03 오후 10 40 09" src="https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/07204b53-d2db-48a0-9659-bcfe26b03613">
 <img width="795" alt="스크린샷 2023-08-03 오후 10 40 21" src="https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/418e5f51-20f0-4836-8035-aecf27dc5585">
 <img width="879" alt="스크린샷 2023-08-03 오후 10 40 30" src="https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/8f1acda4-7858-4c06-a6f4-932bba9b84b8">
