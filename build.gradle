@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.practical'
-version = '0.0.1-SNAPSHOT'
+version = 'v1.1'
 
 java {
     sourceCompatibility = '17'
@@ -66,4 +66,10 @@ sourceSets {
 
 clean {
     delete file(generated)
+}
+
+jar {
+    manifest {
+        attributes('Main-Class': 'com.practical.practical_bulletin_board_project.PracticalBulletinBoardProjectApplication')
+    }
 }
