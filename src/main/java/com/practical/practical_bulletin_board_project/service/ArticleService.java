@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -36,8 +37,11 @@ public class ArticleService {
             case CONTENT -> articleRepository.findByContentContaining(searchKeyword, pageable).map(ArticleDto::from);
             case ID -> articleRepository.findByUserAccount_UserIdContaining(searchKeyword, pageable).map(ArticleDto::from);
             case NICKNAME -> articleRepository.findByUserAccount_NicknameContaining(searchKeyword, pageable).map(ArticleDto::from);
-            case HASHTAG -> articleRepository.findByHashtag("#" + searchKeyword, pageable).map(ArticleDto::from);
-
+            case HASHTAG -> articleRepository.findByHashtagNames(
+                            Arrays.stream(searchKeyword.split(" ")).toList(),
+                            pageable
+                    )
+                    .map(ArticleDto::from);
         };
 
 
@@ -69,7 +73,6 @@ public class ArticleService {
             if(article.getUserAccount().equals(userAccount)) {
                 if (dto.title() != null) {article.setTitle(dto.title());} //record라 알아서 getter setter
                 if (dto.content() != null) {article.setContent(dto.content());}
-                article.setHashtag(dto.hashtag());
             }
             //save 메서드는 필요 없다 -> 클래스 레벨 transactional에 의해 메서드 단위로 transactional 묶여있다.
             //그래서 transaction이 끝날 때 persistenceContext는 article이 변한 것을 감지해낸다.
@@ -93,7 +96,7 @@ public class ArticleService {
             return Page.empty(pageable);
         }
 
-        return articleRepository.findByHashtag(hashtag, pageable).map(ArticleDto::from);
+        return articleRepository.findByHashtagNames(null, pageable).map(ArticleDto::from);
     }
 
     public List<String> getHashtags() {

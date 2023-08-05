@@ -3,6 +3,7 @@ package com.practical.practical_bulletin_board_project.service;
 
 import com.practical.practical_bulletin_board_project.domain.Article;
 import com.practical.practical_bulletin_board_project.domain.ArticleComment;
+import com.practical.practical_bulletin_board_project.domain.Hashtag;
 import com.practical.practical_bulletin_board_project.domain.UserAccount;
 import com.practical.practical_bulletin_board_project.dto.UserAccountDto;
 import com.practical.practical_bulletin_board_project.dto.ArticleCommentDto;
@@ -21,6 +22,7 @@ import javax.lang.model.SourceVersion;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -171,7 +173,7 @@ class ArticleCommentServiceTest {
 
     private ArticleComment createArticleComment(String content) {
         return ArticleComment.of(
-                Article.of(createUserAccount(), "title", "content", "hashtag"),
+                createArticle(),
                 createUserAccount(),
                 content
         );
@@ -188,12 +190,18 @@ class ArticleCommentServiceTest {
     }
 
     private Article createArticle() {
-        return Article.of(
+        Article article = Article.of(
                 createUserAccount(),
                 "title",
-                "content",
-                "#java"
+                "content"
         );
+        article.addHashtags(Set.of(createHashtag(article)));
+
+        return article;
+    }
+
+    private Hashtag createHashtag(Article article) {
+        return Hashtag.of("java");
     }
 
 }
