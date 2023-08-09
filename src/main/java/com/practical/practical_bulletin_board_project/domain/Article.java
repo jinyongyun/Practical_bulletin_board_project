@@ -1,6 +1,6 @@
 package com.practical.practical_bulletin_board_project.domain;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

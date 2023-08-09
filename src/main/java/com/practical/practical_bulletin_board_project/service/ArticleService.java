@@ -8,7 +8,7 @@ import com.practical.practical_bulletin_board_project.dto.ArticleWithCommentsDto
 import com.practical.practical_bulletin_board_project.repository.ArticleRepository;
 import com.practical.practical_bulletin_board_project.repository.HashtagRepository;
 import com.practical.practical_bulletin_board_project.repository.UserAccountRepository;
-import jakarta.persistence.EntityNotFoundException;
+import javax.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
