@@ -9,9 +9,9 @@ logging:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5431/board
-    username: jinyongyun
-    password: ygc@1577
+    url: ${LOCAL_DB_URL}
+    username: ${LOCAL_DB_USERNAME}
+    password: ${LOCAL_DB_PASSWORD}
   jpa:
     open-int-view: false
     defer-datasource-initialization: true
