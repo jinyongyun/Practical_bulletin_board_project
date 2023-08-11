@@ -2,7 +2,8 @@
 ![GitKraken shield](https://img.shields.io/badge/GitKraken-Legendary%20Git%20Tools-teal?style=plastic&logo=gitkraken)
 
 ## 실무형 게시판 만들기 프로젝트 
-![화면_기록_2023-08-11_오전_10_42_36_AdobeExpress (1)](https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/792de161-c895-4015-ad5b-85349c606285)
+![6f89fe26-74c6-48bf-bb51-9c19cddef791](https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/1d7d80e0-f0ff-415c-9c8c-6bc653a58737)
+
 
 
 
