@@ -1,7 +1,12 @@
 # Practical_bulletin_board_project
 ![GitKraken shield](https://img.shields.io/badge/GitKraken-Legendary%20Git%20Tools-teal?style=plastic&logo=gitkraken)
 
-실무형 게시판 만들기 프로젝트 
+## 실무형 게시판 만들기 프로젝트 
+![화면_기록_2023-08-11_오전_10_42_36_AdobeExpress](https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/d173a471-feea-4a2e-8dec-ece60eb9bdda)
+![화면_기록_2023-08-11_오전_10_42_36_AdobeExpress (1)](https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/792de161-c895-4015-ad5b-85349c606285)
+
+
+
 ## notion 링크
 https://www.notion.so/b5e2ee331c364c149f49234c4e8f973e?pvs=4
 
