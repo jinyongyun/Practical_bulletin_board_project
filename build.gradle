@@ -24,6 +24,7 @@ ext {
 
 dependencies {
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.12'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.12'
     implementation 'org.springdoc:springdoc-openapi-data-rest:1.6.12'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
