@@ -3,7 +3,7 @@
 
 ## 실무형 게시판 만들기 프로젝트 
 ![화면_기록_2023-08-11_오전_10_42_36_AdobeExpress (1)](https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/792de161-c895-4015-ad5b-85349c606285)
-![화면_기록_2023-08-11_오전_10_42_36_AdobeExpress (1) (2)](https://github.com/jinyongyun/Practical_bulletin_board_project/assets/102133961/88e6ff6e-1bc1-4aec-b2c1-d4f321dfc1b0)
+
 
 
 ## notion 링크
