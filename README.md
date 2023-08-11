@@ -1,5 +1,5 @@
 # Practical_bulletin_board_project
-[![GitKraken shield](https://img.shields.io/badge/GitKraken-Legendary%20Git%20Tools-teal?style=plastic&logo=gitkraken)]
+![GitKraken shield](https://img.shields.io/badge/GitKraken-Legendary%20Git%20Tools-teal?style=plastic&logo=gitkraken)
 
 실무형 게시판 만들기 프로젝트 
 ## notion 링크
